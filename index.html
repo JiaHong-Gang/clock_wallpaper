@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Minimalist Gear Rotary Clock</title>
+
+<!-- Import external stylesheet -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Main clock container -->
+<div class="clock-container">
+
+    <!-- Horizontal indicator line showing the active position -->
+    <div class="indicator"></div>
+
+    <!-- Center date display -->
+    <div id="center-date"></div>
+
+    <!-- Three rotating rings -->
+    <div id="ring-h" class="ring"></div> <!-- Hours ring -->
+    <div id="ring-m" class="ring"></div> <!-- Minutes ring -->
+    <div id="ring-s" class="ring"></div> <!-- Seconds ring -->
+
+</div>
+
+<!-- Load scripts (order matters) -->
+<script src="config.js"></script>
+<script src="ring.js"></script>
+<script src="clock.js"></script>
+
+</body>
+</html>

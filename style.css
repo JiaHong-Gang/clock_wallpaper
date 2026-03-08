@@ -1,0 +1,164 @@
+/* 
+Global page styling
+Creates a dark minimal background and centers the clock
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #08080b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+/* 
+Main container that holds the entire clock
+*/
+.clock-container {
+    position: relative;
+    width: 1000px;
+    height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+Date text displayed at the center of the clock
+*/
+#center-date {
+    position: absolute;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #fff;
+
+    /* Background hides indicator line behind it */
+    background-color: #08080b;
+
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    z-index: 20;
+
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/*
+Circular track that holds numbers and ticks
+*/
+.ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/*
+Single item on the ring (tick + number)
+*/
+.ring-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    transform-origin: center center;
+    transition: opacity 0.3s;
+}
+
+/*
+Basic tick mark style
+*/
+.tick {
+    height: 1px;
+    background-color: #444;
+    transition: all 0.3s;
+}
+
+/* Short tick mark */
+.tick.short {
+    width: 6px;
+}
+
+/* Longer tick mark (every 5 units) */
+.tick.long {
+    width: 14px;
+    background-color: #666;
+}
+
+/*
+Number label next to each tick
+*/
+.num-label {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #555;
+
+    transition: all 0.3s;
+}
+
+/*
+Active element (current time)
+*/
+.ring-item.active .num-label {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+
+    text-shadow: 0 0 12px rgba(255,255,255,0.8);
+}
+
+/*
+Highlighted tick for active element
+*/
+.ring-item.active .tick {
+    background-color: #ffffff;
+    height: 2px;
+
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/*
+Horizontal indicator line in the center
+Represents the "reading position" of the clock
+*/
+.indicator {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 440px;
+    height: 36px;
+
+    transform: translateY(-50%);
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.08) 100%
+    );
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    border-radius: 0 18px 18px 0;
+}
